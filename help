@@ -1,5 +1,0 @@
-commands:
-# sudo nix-collect-garbage --delete-older-than 15d
-# sudo nixos-rebuild switch
-# sudo nix flake update
-# sudo nixos-rebuild switch --flake /etc/nixos#default
