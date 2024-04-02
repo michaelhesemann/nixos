@@ -45,5 +45,5 @@ in
   networking.nameservers = ["10.20.0.102"];
 
   system = "x86_64-linux";
-  system.stateVersion = "23.11";
+  # system.stateVersion = "23.11";
 }
