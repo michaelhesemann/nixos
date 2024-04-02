@@ -7,7 +7,7 @@ let
 
   mysqlPkgs = import (builtins.fetchTarball {
       url = "https://github.com/NixOS/nixpkgs/archive/5a8650469a9f8a1958ff9373bd27fb8e54c4365d.tar.gz";
-      sha256 = "aaaa";
+      sha256 = "";
   }) {};
 in
 {
