@@ -1,16 +1,12 @@
 { pkgs, ... }:
 let
-    pkgs = import (builtins.fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/5a8650469a9f8a1958ff9373bd27fb8e54c4365d.tar.gz";
-    }) {};
+  phpPkgs = import (builtins.fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/a5c9c6373aa35597cd5a17bc5c013ed0ca462cf0.tar.gz";
+  }) {};
 
-    myPkg = pkgs.mysql80;
-
-    pkgs = import (builtins.fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/a5c9c6373aa35597cd5a17bc5c013ed0ca462cf0.tar.gz";
-    }) {};
-
-    myPkg = pkgs.php56;
+  mysqlPkgs = import (builtins.fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/5a8650469a9f8a1958ff9373bd27fb8e54c4365d.tar.gz";
+  }) {};
 in
 {
   imports = [
@@ -35,6 +31,8 @@ in
   # system-wide packages
   environment.systemPackages = with pkgs; [
     neovim
+    phpPkgs.php56
+    mysqlPkgs.mysql80
   ];
 
   system.stateVersion = "23.11";
