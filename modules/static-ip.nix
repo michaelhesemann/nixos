@@ -1,38 +1,57 @@
-{ config, lib, ... }:
+{ config, pkgs, ... }:
 
 with lib;
 
 {
   options = {
-    networking.interfaces.eth0.useDHCP = mkOption {
+    networking.staticIP.enable = mkOption {
       type = types.bool;
-      default = true;
-      description = "Whether to use DHCP for eth0 interface";
+      default = false;
+      description = "Enable static IP configuration";
     };
 
-    networking.interfaces.eth0.ipv4.addresses = mkOption {
-      type = types.listOf types.attrs;
-      default = [];
-      description = "List of IPv4 addresses for eth0 interface";
-    };
-
-    networking.defaultGateway = mkOption {
+    networking.staticIP.interface = mkOption {
       type = types.str;
-      default = "";
-      description = "Default gateway IP address";
+      default = "eth0";
+      description = "Name of the network interface";
     };
 
-    networking.nameservers = mkOption {
+    networking.staticIP.address = mkOption {
+      type = types.str;
+      default = "192.168.1.10";
+      description = "Static IP address";
+    };
+
+    networking.staticIP.prefixLength = mkOption {
+      type = types.int;
+      default = 24;
+      description = "Prefix length for the IP address";
+    };
+
+    networking.staticIP.gateway = mkOption {
+      type = types.str;
+      default = "192.168.1.1";
+      description = "Gateway address";
+    };
+
+    networking.staticIP.dnsServers = mkOption {
       type = types.listOf types.str;
-      default = [];
-      description = "List of DNS server IP addresses";
+      default = ["8.8.8.8" "8.8.4.4"];
+      description = "List of DNS servers";
     };
   };
 
-  config = {
-    networking.interfaces.eth0.useDHCP = config.networking.interfaces.eth0.useDHCP;
-    networking.interfaces.eth0.ipv4.addresses = config.networking.interfaces.eth0.ipv4.addresses;
-    networking.defaultGateway = config.networking.defaultGateway;
-    networking.nameservers = config.networking.nameservers;
+  config = mkIf config.networking.staticIP.enable {
+    networking.interfaces.${config.networking.staticIP.interface}.useDHCP = false;
+    networking.interfaces.${config.networking.staticIP.interface}.ipv4.addresses = [{
+      address = config.networking.staticIP.address;
+      prefixLength = config.networking.staticIP.prefixLength;
+    }];
+    networking.interfaces.${config.networking.staticIP.interface}.ipv4.routes = [{
+      address = "0.0.0.0";
+      prefixLength = 0;
+      via = config.networking.staticIP.gateway;
+    }];
+    networking.nameservers = config.networking.staticIP.dnsServers;
   };
 }
