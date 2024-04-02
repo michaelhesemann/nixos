@@ -41,25 +41,23 @@ with lib;
     };
   };
 
-  config = {
-    networking = {
-      interfaces = {
-        [config.networking.staticIP.interface] = {
-          useDHCP = false;
-          ipv4 = {
-            addresses = [{
-              address = config.networking.staticIP.address;
-              prefixLength = config.networking.staticIP.prefixLength;
-            }];
-            routes = [{
-              address = "0.0.0.0";
-              prefixLength = 0;
-              via = config.networking.staticIP.gateway;
-            }];
-          };
+  config = mkIf config.networking.staticIP.enable {
+    networking.interfaces = {
+      [config.networking.staticIP.interface] = {
+        useDHCP = false;
+        ipv4 = {
+          addresses = [{
+            address = config.networking.staticIP.address;
+            prefixLength = config.networking.staticIP.prefixLength;
+          }];
+          routes = [{
+            address = "0.0.0.0";
+            prefixLength = 0;
+            via = config.networking.staticIP.gateway;
+          }];
         };
       };
-      nameservers = config.networking.staticIP.dnsServers;
     };
+    networking.nameservers = config.networking.staticIP.dnsServers;
   };
 }
