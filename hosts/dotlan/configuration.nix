@@ -38,7 +38,7 @@
   ];
 
   # networking
-  networking.interfaces.eth0.ipv4.addresses = [{
+  networking.interfaces.ens33.ipv4.addresses = [{
     address = "10.20.0.103";
     prefixLength = 23;
   }];
