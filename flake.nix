@@ -30,6 +30,12 @@
             ./hosts/server/configuration.nix
           ];
         };
+        dotlan = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
+          modules = [
+            ./hosts/dotlan/configuration.nix
+          ];
+        };
       };
     };
 }
