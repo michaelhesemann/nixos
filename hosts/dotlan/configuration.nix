@@ -30,6 +30,7 @@ in
 
   # sshd
   services.sshd.enable = true;
+  services.openssh.settings.permitRootLogin = "yes";
 
   # system-wide packages
   environment.systemPackages = with pkgs; [
