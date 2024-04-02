@@ -3,9 +3,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/main-user.nix
     ../../modules/locale.nix
     ../../modules/nix-ld.nix
+    ../../modules/user-michael.nix
   ];
 
   # basic stuff
