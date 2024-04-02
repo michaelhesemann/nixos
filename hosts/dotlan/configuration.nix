@@ -14,7 +14,6 @@ in
     ../../modules/locale.nix
     ../../modules/nix-ld.nix
     ../../modules/user-server.nix
-    ../../modules/static-ip.nix
   ];
 
   # basic stuff
@@ -36,12 +35,12 @@ in
   ];
 
   # networking
-  networking.staticIP.enable = true;
-  networking.staticIP.interface = "eth0";
-  networking.staticIP.address = "10.20.0.103";
-  networking.staticIP.prefixLength = 23;
-  networking.staticIP.gateway = "10.20.0.1";
-  networking.staticIP.dnsServers = ["10.20.0.102"];
+  networking.interfaces.eth0.ipv4.addresses = [{
+    address = "10.20.0.103";
+    prefixLength = 23;
+  }];
+  networking.defaultGateway = "10.20.0.1";
+  networking.nameservers = ["10.20.0.102"];
 
   system.stateVersion = "23.11";
 }
