@@ -14,6 +14,7 @@ in
     ../../modules/locale.nix
     ../../modules/nix-ld.nix
     ../../modules/user-server.nix
+    ../../modules/static-ip.nix
   ];
 
   # basic stuff
@@ -22,7 +23,6 @@ in
   networking.hostName = "dotlan";
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  networking.networkmanager.enable = true;
 
   # sshd
   services.sshd.enable = true;
@@ -34,6 +34,15 @@ in
     phpPkgs.php56
     mysqlPkgs.mysql80
   ];
+
+  # networking
+  networking.interfaces.eth0.useDHCP = false;
+  networking.interfaces.eth0.ipv4.addresses = [{
+    address = "10.20.0.103";
+    prefixLength = 23;
+  }];
+  networking.defaultGateway = "10.20.0.1";
+  networking.nameservers = [ "10.20.0.102" ];
 
   system.stateVersion = "23.11";
 }
