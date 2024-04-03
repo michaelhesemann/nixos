@@ -10,6 +10,7 @@ let
       sha256 = "0qij2z6fxlmy4y0zaa3hbza1r2pnyp48pwvfvba614mb8x233ywq";
   }) {};
 
+  system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
 
 in
