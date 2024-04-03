@@ -14,8 +14,7 @@ in
           sha256 = "0wpl8rhkfd7s4nm32vfn6fha0g4a1p5214117vvwsl4y3l1gm68a";
         };
       });
-    })
-    (self: super: {
+
       mysql80 = super.mysql80.overrideAttrs (oldAttrs: {
         version = "8.0.34";
         src = fetchurl {
