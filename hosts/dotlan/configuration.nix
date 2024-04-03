@@ -10,8 +10,8 @@ let
       sha256 = "0qij2z6fxlmy4y0zaa3hbza1r2pnyp48pwvfvba614mb8x233ywq";
   }) {};
 
-  phpPkgs = phpPkgs.php56;
-  mysqlPkgs = mysqlPkgs.mysql80;
+  # phpPkgs = phpPkgs.php56;
+  # mysqlPkgs = mysqlPkgs.mysql80;
 
 in
 {
@@ -36,8 +36,8 @@ in
   environment.systemPackages = with pkgs; [
     neovim
     git
-    # phpPkgs.php56
-    # mysqlPkgs.mysql80
+    phpPkgs.php56
+    mysqlPkgs.mysql80
   ];
 
   # networking
