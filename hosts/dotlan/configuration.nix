@@ -33,8 +33,8 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
-    phpPkgs.php56
-    mysqlPkgs.mysql80
+    # phpPkgs.php56
+    # mysqlPkgs.mysql80
   ];
 
   # networking
