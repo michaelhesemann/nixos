@@ -1,3 +1,9 @@
+{ pkgs ? import <nixpkgs> {} }:
+
+let
+  fetchurl = pkgs.fetchurl;
+in
+
 {
   nixpkgs.overlays = [
     (self: super: {
