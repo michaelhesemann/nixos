@@ -10,7 +10,7 @@ let
       sha256 = "";
   }) {};
 
-  system = x86_64-linux;
+  system = "x86_64-linux";
 in
 {
   imports = [
