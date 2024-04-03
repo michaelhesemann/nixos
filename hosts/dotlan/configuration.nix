@@ -26,7 +26,7 @@ in
   networking.hostName = "dotlan";
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # builtins.currentSystem = ""
+  builtins.currentSystem = "x86_64-linux";
 
   # sshd
   services.sshd.enable = true;
