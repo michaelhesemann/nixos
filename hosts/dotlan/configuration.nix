@@ -10,8 +10,7 @@ let
       sha256 = "0qij2z6fxlmy4y0zaa3hbza1r2pnyp48pwvfvba614mb8x233ywq";
   }) {};
 
-  # phpPkgs = phpPkgs.php56;
-  # mysqlPkgs = mysqlPkgs.mysql80;
+  pkgs = pkgs;
 
 in
 {
