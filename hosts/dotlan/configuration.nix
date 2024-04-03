@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, system, ... }:
+{ config, pkgs, inputs, nixpkgs, ... }:
 let
   phpPkgs = import (builtins.fetchTarball {
       inherit system;
