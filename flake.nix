@@ -10,7 +10,9 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      nixpkgs.overlays = [ version.overlay ];
+      configuration = {
+        nixpkgs.overlays = [ version.overlay ];
+      };
     in
     {
       nixosConfigurations = {
