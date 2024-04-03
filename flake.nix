@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    version.url = "./modules/version-overlay.nix";
+    version.url = "./modules/version";
   };
 
   outputs = { self, nixpkgs, version, ... }@inputs:
