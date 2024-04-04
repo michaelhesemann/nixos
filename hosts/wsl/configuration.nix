@@ -8,6 +8,8 @@
 
   outputs = { self, nixpkgs-php-5-6-36, nixpkgs-mysql-8-0-43, ... }@inputs:
     let
+      system = "x86_64-linux";
+
       overlay-nixpkgs = final: prev: {
         php-5-6-36 = import nixpkgs-php-5-6-36 {
           inherit system;
