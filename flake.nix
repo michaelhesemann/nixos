@@ -3,16 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    version.url = "./modules/version";
+    overlays.url = "./overlays";
   };
 
   outputs = { self, nixpkgs, version, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      configuration = {
-        nixpkgs.overlays = [ version.overlay ];
-      };
+      # pkgs = import nixpkgs { inherit system; overlays = [ overlay1 ]; };
     in
     {
       nixosConfigurations = {

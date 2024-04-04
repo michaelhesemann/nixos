@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, options, ... }:
 
 {
   imports = [
@@ -7,6 +7,9 @@
     ../../modules/nix-ld.nix
     ../../modules/user-server.nix
   ];
+
+  # pkg versions overlay
+  nix.nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=../../overlays" ];
 
   # basic stuff
   boot.loader.grub.enable = true;
