@@ -8,9 +8,6 @@
     ../../modules/user-server.nix
   ];
 
-  # pkg versions overlay
-  nix.nixPath = options.nix.nixPath.default ++ [ "nixpkgs-overlays=../../overlays" ];
-
   # basic stuff
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -25,6 +22,8 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
+    php
+    mysql
   ];
 
   # networking
