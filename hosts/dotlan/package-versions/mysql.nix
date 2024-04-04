@@ -1,4 +1,4 @@
-{ config, pkgs, options, ... }:
+{ config, pkgs, nixpkgs, ... }:
 
 let
   pkgs = import (builtins.fetchGit {
