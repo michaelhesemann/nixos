@@ -13,7 +13,7 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
-    php
+    # php
     mysql
   ];
 
