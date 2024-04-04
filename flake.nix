@@ -34,7 +34,6 @@
           specialArgs = {inherit inputs;};
           modules = [
             ./hosts/dotlan/configuration.nix
-            (import ./hosts/dotlan/overlays)
           ];
         };
         wsl = nixpkgs.lib.nixosSystem {
