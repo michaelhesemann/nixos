@@ -16,7 +16,7 @@
       mysql = prev.php.overrideAttrs (old: {
         src = prev.fetchurl {
           url = "https://github.com/NixOS/nixpkgs/archive/5a8650469a9f8a1958ff9373bd27fb8e54c4365d.tar.gz";
-          sha256 = "0qij2z6fxlmy4y0zaa3hbza1r2pnyp48pwvfvba614mb8x233ywq";
+          sha256 = "kmOdEke+s3xuPLz4NfppFg+nLtU//OaccMQLG2CMnvM=";
         };
       });
     })
