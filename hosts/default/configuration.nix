@@ -28,7 +28,5 @@
   main-user.enable = true;
   main-user.userName = "michael";
 
-  system = "x86_64-linux";
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   system.stateVersion = "23.11";
 }
