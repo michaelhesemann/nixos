@@ -40,6 +40,7 @@
           specialArgs = {inherit inputs;};
           modules = [
             ./hosts/wsl/configuration.nix
+            (import ./hosts/wsl/overlays)
           ];
         };
       };
