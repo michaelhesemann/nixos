@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -8,6 +8,7 @@
   wsl.enable = true;
   wsl.defaultUser = "nixos";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  system = "x86_64-linux";
 
   environment.systemPackages = with pkgs; [
     git
