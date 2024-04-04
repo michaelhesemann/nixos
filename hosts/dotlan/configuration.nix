@@ -1,17 +1,5 @@
 { config, pkgs, options, ... }:
 
-let
-  mysql = import (builtins.fetchGit {
-      # Descriptive name to make the store path easier to identify
-      name = "my-old-revision";
-      url = "https://github.com/NixOS/nixpkgs/";
-      ref = "refs/heads/nixpkgs-unstable";
-      rev = "9957cd48326fe8dbd52fdc50dd2502307f188b0d";
-  }) {};
-
-  myPkg = mysql.mysql80;
-in
-
 {
   imports = [
     ./hardware-configuration.nix
@@ -36,6 +24,8 @@ in
   environment.systemPackages = with pkgs; [
     neovim
     git
+    btop
+    htop
   ];
 
   # networking
