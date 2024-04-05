@@ -1,8 +1,8 @@
 { config, pkgs, nixpkgs, ... }:
 
 let
-  import = fetchGit { system = "x86_64-linux"; };
   pkgs = import (builtins.fetchGit {
+    system = "x86_64-linux";
     name = "php-5-6-36";
     url = "https://github.com/NixOS/nixpkgs/";
     ref = "refs/heads/nixpkgs-unstable";
