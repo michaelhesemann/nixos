@@ -1,18 +1,18 @@
 { config, pkgs, nixpkgs, ... }:
 
 let
-  pkgs = import <nixpkgs> (system = "x86_64-linux"; builtins.fetchGit {
-    name = "php-5-6-36";
+  pkgs = import (builtins.fetchGit {
+    name = "mysql-8-0-34";
     url = "https://github.com/NixOS/nixpkgs/";
     ref = "refs/heads/nixpkgs-unstable";
-    rev = "a5c9c6373aa35597cd5a17bc5c013ed0ca462cf0";
+    rev = "9957cd48326fe8dbd52fdc50dd2502307f188b0d";
   }) {};
 
-  php = pkgs.php56;
+  mysql = pkgs.mysql80;
 in
 
 {
   environment.systemPackages = with pkgs; [
-    php
+    mysql
   ];
 }
