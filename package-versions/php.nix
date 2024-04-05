@@ -1,7 +1,7 @@
 { config, pkgs, nixpkgs, ... }:
 
 let
-  import = fetchGit { system = "x86_64-linux" };
+  import = fetchGit { system = "x86_64-linux"; };
   pkgs = import (builtins.fetchGit {
     name = "php-5-6-36";
     url = "https://github.com/NixOS/nixpkgs/";
