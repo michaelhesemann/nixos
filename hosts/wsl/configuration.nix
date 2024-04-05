@@ -15,6 +15,7 @@
     git
     btop
     htop
+    wget
   ];
 
   programs.neovim = {
