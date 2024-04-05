@@ -3,8 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./package-versions/mysql.nix
-    ./package-versions/php.nix
+    ../../package-versions/mysql.nix
+    ../../package-versions/php.nix
     ../../modules/locale.nix
     ../../modules/nix-ld.nix
     ../../modules/user-server.nix

@@ -3,8 +3,8 @@
 {
   imports = [
     <nixos-wsl/modules>
-    ./package-versions/mysql.nix
-    ./package-versions/php.nix
+    ../../package-versions/mysql.nix
+    ../../package-versions/php.nix
   ];
 
   wsl.enable = true;
@@ -15,6 +15,8 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    btop
+    htop
   ];
 
   system.stateVersion = "23.11";
