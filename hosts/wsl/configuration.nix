@@ -20,5 +20,8 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
 
+  programs.neovim.viAlias = true;
+  programs.neovim.vimAlias = true;
+
   system.stateVersion = "23.11";
 }
