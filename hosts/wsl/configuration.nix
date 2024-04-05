@@ -3,8 +3,6 @@
 {
   imports = [
     <nixos-wsl/modules>
-    ../../package-versions/mysql.nix
-    ../../package-versions/php.nix
   ];
 
   wsl.enable = true;
@@ -18,6 +16,9 @@
     btop
     htop
   ];
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = true;
 
   system.stateVersion = "23.11";
 }
